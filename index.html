@@ -1,20 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="">
 <head>
-<meta charset="utf-8">
-<title>升学有道的文理小铺</title>
-<script>
-function displayDate(){
-	document.getElementById("demo").innerHTML=Date();
-}
-</script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>测试页面</title>
 </head>
 <body>
+<div id="copy" data-clipboard-text="测试剪切板">
+    <p>准备强奸
+        <br><br><br><br><br><br><br><br><br><br> 
+        <!--<br> 可插入一个简单的换行符。-->
+        结束</p>
+</div>
 
-<h1>我的第一个 JavaScript 程序</h1>
-<p id="demo">这是一个段落</p>
+<script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+<!--CDNJS 是一个互联网上的JavaScript 资料库-->
+<script>
+     $("body").onclick = copycode();
 
-<button type="button" onclick="displayDate()">显示日期</button>
+    function copycode()
+    {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+        {
+            var clipboard = new Clipboard('#copy');
 
+            clipboard.on('success', function (e)
+            {
+                alert("复制成功");
+            });
+            clipboard.on('error', function (e)
+            {
+                alert("复制失败");
+            });
+        }
+    }
+
+</script>
 </body>
 </html>
