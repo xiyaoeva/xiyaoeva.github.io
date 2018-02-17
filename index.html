@@ -1,17 +1,27 @@
-<div class="test-area">
-    <input id="taokouling" value="{{code}}" type="text">
-    <button id="copyCode" class="btn" data-clipboard-target="#taokouling" data-clipboard-action="copy">
-        复制淘口令
-    </button>
-    <script type="text/javascript" src="http://www.fndroid.cn/clipboard.min.js"></script>
-    <script>
-        var clipboard = new Clipboard('.btn');
-        clipboard.on('success', function(e){
-            console.log(e);
-            document.getElementById('copyCode').innerHTML = '复制成功';
-        });
-        clipboard.on('error', function(e){
-            document.getElementById('copyCode').innerHTML = '复制失败，请长按复制';
-        });
-    </script>
-</div>
+<<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+<body>
+
+<div class="btn" style="cursor:pointer;">copy123456</div>
+
+<script src="clipboard.min.js"></script>
+<script src="jquery.min.js"></script>
+<script>
+    var clipboard = new Clipboard('.btn', {
+        text: function () {
+            return $(".btn").html();
+        }
+    });
+
+    clipboard.on('success', function (e) {
+        alert("複製成功");
+    });
+
+    clipboard.on('error', function (e) {
+        alert("複製失敗");
+    });
+</script>
+</body>
+</html>
