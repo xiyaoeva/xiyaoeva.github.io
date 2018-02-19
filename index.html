@@ -6,15 +6,13 @@
     <title>试题界面</title>
 </head>
 <body>
-    <button data-clipboard-text="1">Copy</button>
-    <button data-clipboard-text="2">Copy</button>
-    <button data-clipboard-text="3">Copy</button>
+    <input id="foo1"  value="http://www.shellad.com/_2SP__22（要复制的内容）" readonly="readonly">
+<div class="the_btn_con"><button class="btn" data-clipboard-target="#foo1">复制</button></div>
 <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 <!--CDNJS 是一个互联网上的JavaScript 资料库-->
 <script>
-      var btns = document.querySelectorAll('button');
-      var clipboard = new Clipboard(btns);
+      var clipboard = new Clipboard('.btn');
 
       clipboard.on('success', function(e) {
         alert("请点击OK／确定/关闭");
