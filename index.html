@@ -6,22 +6,37 @@
     <title>试题界面</title>
 </head>
 <body>
- <input id=input/>
- <button id=button>Click Me</button>
+<input readOnly="true" style="outline: none;border: 0px; color: rgba(0,0,0,0.0);position: absolute;left:-200px; background-color: transparent" id="biao1" value=""/>  
+<div id="biaoios" style=";position: absolute;left:-200px; color: rgba(0,0,0,0);background-color: transparent" ></div>  
 <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 <!--CDNJS 是一个互联网上的JavaScript 资料库-->
 <script>
-    const input = document.getElementById('input')
-    const button = document.getElementById('button')
-    button.addEventListener('click', () => {
-    input.focus()
-    input.select()
-    input.setSelectionRange(0, input.value.length)
-    document.execCommand('copy')
-})
-     input.value = '麻烦大家用过这个库的解读一下，非常感谢'
-     
+    $("#biao1").val("bug");//要复制的内容  
+    document.getElementById("biaoios").innerHTML="bug"+"";  
+    function img()  
+        {  
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {//区分iPhone设备  
+                window.getSelection().removeAllRanges();//这段代码必须放在前面否则无效  
+                var Url2=document.getElementById("biaoios");//要复制文字的节点  
+                var range = document.createRange();  
+                // 选中需要复制的节点  
+                range.selectNode(Url2);  
+                // 执行选中元素  
+                window.getSelection().addRange(range);  
+                // 执行 copy 操作  
+                var successful = document.execCommand('copy');  
+  
+                // 移除选中的元素  
+                window.getSelection().removeAllRanges();  
+            }else{  
+                var Url2=document.getElementById("biao1");//要复制文字的节点  
+                Url2.select(); // 选择对象  
+                document.execCommand("Copy"); // 执行浏览器复制命令  
+            }  
+              
+  
+        }  
 
 </script>
 </body>
