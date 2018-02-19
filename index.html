@@ -17,11 +17,11 @@
       var clipboard = new Clipboard(btns);
 
       clipboard.on('success', function(e) {
-        console.log(e);
+        alert("请点击OK／确定/关闭");
     });
 
       clipboard.on('error', function(e) {
-        console.log(e);
+       alert("失败");
     });
 
 </script>
